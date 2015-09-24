@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Bdt_CleanupSession>
+            <version>0.1.0</version>
+        </Bdt_CleanupSession>
+    </modules>
+    <crontab>
+        <jobs>
+            <bdt_cleanupsession_removesessionfiles>
+                <schedule>
+                    <cron_expr>*/2 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>cleanupsession/observer::removeSessionFiles</model>
+                </run>
+            </bdt_cleanupsession_removesessionfiles>
+        </jobs>
+    </crontab>
+
+    <global>
+        <models>
+            <cleanupsession>
+                <class>Bdt_CleanupSession_Model</class>
+            </cleanupsession>
+        </models>
+    </global>
+</config>
